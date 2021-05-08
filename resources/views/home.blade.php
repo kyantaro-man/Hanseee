@@ -10,7 +10,7 @@
           </div>
           <div class="panel-body">
             <div class="text-center">
-              <a href="{{ route('rooms.create') }}" class="btn btn-primary">
+              <a href="#" class="btn btn-primary">
                 カテゴリ作成ページへ
               </a>
             </div>
