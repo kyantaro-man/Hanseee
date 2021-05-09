@@ -9,7 +9,7 @@
         </li>
       @endforeach
       <li class="nav-item">
-        <a class="nav-link btn btn-success" href="#">カテゴリ追加</a>
+        <a class="nav-link btn btn-success" href="{{ route('categories.create') }}">カテゴリ追加</a>
       </li>
     </ul>
   </div>
