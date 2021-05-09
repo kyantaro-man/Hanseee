@@ -27,4 +27,15 @@ class CreateCategory extends FormRequest
             'name' => 'required|max:20',
         ];
     }
+
+    /**
+     * エラーメッセージを日本語化
+     * 
+     * @return array
+     */
+    public function attributes() {
+        return [
+            'name' => 'カテゴリ名',
+        ];
+    }
 }
