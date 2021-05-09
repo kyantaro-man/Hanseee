@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['middleware' => 'auth'], function() {
   Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+  Route::get('/categories', [App\Http\Controllers\CategoriesController::class, 'index'])->name('categories.index');
 });
 
 Auth::routes();
