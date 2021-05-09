@@ -49,4 +49,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * ユーザーの設定したカテゴリを取得
+     */
+    public function categories() {
+        return $this->hasMany(Category::class);
+    }
 }
