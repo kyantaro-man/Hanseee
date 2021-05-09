@@ -6,12 +6,12 @@
       <div class="col col-md-offset-3 col-md-6">
         <nav class="panel panel-success">
           <div class="panel-heading">
-            ようこそ！まずはカテゴリを作成しましょう！
+            ようこそ！まずはカテゴリを見てみましょう！
           </div>
           <div class="panel-body">
             <div class="text-center">
-              <a href="#" class="btn btn-primary">
-                カテゴリ作成ページへ
+              <a href="{{ route('categories.index') }}" class="btn btn-primary">
+                カテゴリ一覧ページへ
               </a>
             </div>
           </div>
