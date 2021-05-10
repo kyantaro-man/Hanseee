@@ -25,6 +25,8 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('/categories/{category}/problems/{problem}/edit', [App\Http\Controllers\ProblemsController::class, 'edit'])->name('problems.edit');
   Route::put('/categories/{category}/problems/{problem}', [App\Http\Controllers\ProblemsController::class, 'update'])->name('problems.update');
   Route::delete('/categories/{category}/problems/{problem}', [App\Http\Controllers\ProblemsController::class, 'destroy'])->name('problems.destroy');
+
+  Route::get('/categories/{category}/problems/{problem}/steps', [App\Http\Controllers\StepsController::class, 'index'])->name('steps.index');
 });
 
 Auth::routes();

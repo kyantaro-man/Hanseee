@@ -47,6 +47,36 @@
           </table>
         </nav>
       </div>
+      <div class="col col-md-6">
+        <nav class="panel panel-success">
+          <div class="panel-heading">対策</div>
+          <div class="panel-body">
+          @if(empty($step->id))
+            <a href="#" class="btn btn-default btn-block">
+              対策を追加する
+            </a>
+          @else
+            <div class="row">
+              <div class="col offset-10">
+                <a href="#" class="btn btn-primary btn-xs">
+                  編集
+                </a>
+                <form action="#" method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <input type='submit' value='削除' class='btn btn-danger btn-xs'>
+                </form>
+              </div>
+            </div>
+            <div class="card mt-4">
+              <div class="card-body">
+                {{$step->text}}
+              </div>
+            </div>
+          @endif
+          </div> 
+        </nav>
+      </div>
     </div>
   </div>
 @endsection
