@@ -58,7 +58,7 @@
           @else
             <div class="row">
               <div class="col offset-10">
-                <a href="#" class="btn btn-primary btn-xs">
+                <a href="{{ route('steps.edit', ['category' => $current_category_id, 'problem' => $problem->id, 'step' => $step->id]) }}" class="btn btn-primary btn-xs">
                   編集
                 </a>
                 <form action="#" method="POST">

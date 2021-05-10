@@ -29,6 +29,8 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('/categories/{category}/problems/{problem}/steps', [App\Http\Controllers\StepsController::class, 'index'])->name('steps.index');
   Route::get('/categories/{category}/problems/{problem}/steps/create', [App\Http\Controllers\StepsController::class, 'create'])->name('steps.create');
   Route::post('/categories/{category}/problems/{problem}/steps', [App\Http\Controllers\StepsController::class, 'store'])->name('steps.store');
+  Route::get('/categories/{category}/problems/{problem}/steps/{step}/edit', [App\Http\Controllers\StepsController::class, 'edit'])->name('steps.edit');
+  Route::put('/categories/{category}/problems/{problem}/steps/{step}', [App\Http\Controllers\StepsController::class, 'update'])->name('steps.update');
 });
 
 Auth::routes();

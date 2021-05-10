@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Problem;
 use App\Http\Requests\CreateStep;
 use App\Models\Step;
+use App\Http\Requests\EditStep;
 
 class StepsController extends Controller
 {
@@ -50,6 +51,32 @@ class StepsController extends Controller
         return redirect()->route('steps.index', [
             'category' => $category,
             'problem' => $problem,
+        ]);
+    }
+
+    /**
+     * 対策の編集ページを表示する
+     */
+    public function edit(Category $category, Problem $problem, Step $step) {
+        return view('steps.edit', [
+            'category' => $category,
+            'problem' => $problem,
+            'step' => $step,
+        ]);
+    }
+
+    /**
+     * 対策を更新する
+     */
+    public function update(Category $category, Problem $problem, Step $step, EditStep $request) {
+        $step->text = $request->text;
+        $step->save();
+
+        return redirect()->route('steps.index', [
+            'category' => $category,
+            'current_category_id' => $category->id,
+            'problem' => $problem,
+            'step' => $step,
         ]);
     }
 }
