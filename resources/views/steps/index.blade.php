@@ -52,7 +52,7 @@
           <div class="panel-heading">対策</div>
           <div class="panel-body">
           @if(empty($step->id))
-            <a href="#" class="btn btn-default btn-block">
+            <a href="{{ route('steps.create', ['category' => $current_category_id, 'problem' => $problem->id]) }}" class="btn btn-default btn-block">
               対策を追加する
             </a>
           @else
@@ -61,7 +61,7 @@
                 <a href="{{ route('steps.edit', ['category' => $current_category_id, 'problem' => $problem->id, 'step' => $step->id]) }}" class="btn btn-primary btn-xs">
                   編集
                 </a>
-                <form action="#" method="POST">
+                <form action="{{ route('steps.destroy', ['category' => $current_category_id, 'problem' => $problem->id, 'step' => $step->id]) }}" method="POST">
                   @csrf
                   @method('DELETE')
                   <input type='submit' value='削除' class='btn btn-danger btn-xs'>

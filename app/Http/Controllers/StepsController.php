@@ -79,4 +79,18 @@ class StepsController extends Controller
             'step' => $step,
         ]);
     }
+
+    /**
+     * 対策を削除する
+     */
+    public function destroy(Category $category, Problem $problem, Step $step) {
+        $step->delete();
+
+        return redirect()->route('steps.index', [
+            'category' => $category,
+            'current_category_id' => $category->id,
+            'problem' => $problem,
+            'step' => $step,
+        ]);
+    }
 }
