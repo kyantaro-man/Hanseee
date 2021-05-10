@@ -43,9 +43,9 @@ a.my-navbar-item:hover {
   width: 60px;
 }
 
-.table-room:hover,
-.table-room.act {
-  background-color: #ddae87;
+.table-problem:hover,
+.table-problem.act {
+  background-color: #709e6b;
 }
 
 .form-control[disabled],
