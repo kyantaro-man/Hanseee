@@ -31,7 +31,7 @@ class ProblemsController extends Controller
      */
     public function create(Category $category) {
         return view('problems.create', [
-            'category' => $category,
+            'current_category_id' => $category->id,
         ]);
     }
 
@@ -75,6 +75,18 @@ class ProblemsController extends Controller
             'category' => $category,
             'current_category_id' => $category->id,
             'problems' => $problems,
+            'problem' => $problem,
+        ]);
+    }
+
+    /**
+     * 課題を削除する
+     */
+    public function destroy(Category $category, Problem $problem) {
+        $problem->delete();
+
+        return redirect()->route('problems.index', [
+            'category' => $category->problems()->first(),
             'problem' => $problem,
         ]);
     }
