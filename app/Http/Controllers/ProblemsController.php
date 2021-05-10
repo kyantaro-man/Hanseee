@@ -18,6 +18,7 @@ class ProblemsController extends Controller
 
         return view('problems.index', [
             'categories' => $categories,
+            'current_category_id' => $category->id,
             'problems' => $problems,
         ]);
     }
