@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function() {
   Route::post('/categories/{category}/problems/{problem}/steps', [App\Http\Controllers\StepsController::class, 'store'])->name('steps.store');
   Route::get('/categories/{category}/problems/{problem}/steps/{step}/edit', [App\Http\Controllers\StepsController::class, 'edit'])->name('steps.edit');
   Route::put('/categories/{category}/problems/{problem}/steps/{step}', [App\Http\Controllers\StepsController::class, 'update'])->name('steps.update');
+  Route::delete('/categories/{category}/problems/{problem}/steps/{step}', [App\Http\Controllers\StepsController::class, 'destroy'])->name('steps.destroy');
 });
 
 Auth::routes();
