@@ -22,6 +22,9 @@ Route::group(['middleware' => 'auth'], function() {
   Route::get('/categories/{category}/problems', [App\Http\Controllers\ProblemsController::class, 'index'])->name('problems.index');
   Route::get('/categories/{category}/problems/create', [App\Http\Controllers\ProblemsController::class, 'create'])->name('problems.create');
   Route::post('/categories/{category}/problems', [App\Http\Controllers\ProblemsController::class, 'store'])->name('problems.store');
+  Route::get('/categories/{category}/problems/{problem}/edit', [App\Http\Controllers\ProblemsController::class, 'edit'])->name('problems.edit');
+  Route::put('/categories/{category}/problems/{problem}/', [App\Http\Controllers\ProblemsController::class, 'update'])->name('problems.update');
+
 });
 
 Auth::routes();
