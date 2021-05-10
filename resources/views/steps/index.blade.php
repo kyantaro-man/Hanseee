@@ -5,7 +5,14 @@
     <ul class="nav justify-content-center mb-5">
       @foreach($categories as $category)
         <li class="nav-item nav-category {{ $current_category_id === $category->id ? 'act' : '' }}">
-          <a class="nav-link" href="{{ route('problems.index', ['category' => $category->id]) }}">{{ $category->name }}</a>
+          <a class="nav-link" href="{{ route('problems.index', ['category' => $category->id]) }}">
+            {{ $category->name }}
+            <form class="d-inline-block" action="{{ route('categories.destroy', ['category' => $category->id]) }}" method="POST">
+              @csrf
+              @method('DELETE')
+              <input type='submit' value='×' class='btn btn-danger btn-xs'>
+            </form>
+          </a>
         </li>
       @endforeach
       <li class="nav-item">

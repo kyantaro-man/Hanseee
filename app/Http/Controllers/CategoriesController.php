@@ -39,4 +39,13 @@ class CategoriesController extends Controller
 
         return redirect()->route('categories.index');
     }
+
+    /**
+     * カテゴリを削除する
+     */
+    public function destroy(Category $category) {
+        $category->delete();
+
+        return redirect()->route('categories.index');
+    }
 }
