@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Models\Problem;
 use App\Http\Requests\CreateProblem;
+use App\Http\Requests\EditProblem;
 
 class ProblemsController extends Controller
 {
@@ -45,6 +46,36 @@ class ProblemsController extends Controller
 
         return redirect()->route('problems.index', [
             'category' => $category,
+        ]);
+    }
+
+    /**
+     * 課題の編集ページを表示する
+     */
+    public function edit(Category $category, Problem $problem) {
+        return view('problems.edit', [
+            'category' => $category,
+            'problem' => $problem,
+        ]);
+    }
+
+    /**
+     * 課題を更新する
+     */
+    public function update(Category $category, Problem $problem, EditProblem $request) {
+        $categories = Auth::user()->categories()->get();
+
+        $problems = $category->problems()->get();
+
+        $problem->title = $request->title;
+        $problem->save();
+
+        return redirect()->route('problems.index', [
+            'categories' => $categories,
+            'category' => $category,
+            'current_category_id' => $category->id,
+            'problems' => $problems,
+            'problem' => $problem,
         ]);
     }
 }
