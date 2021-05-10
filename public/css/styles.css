@@ -9,6 +9,24 @@ body {
   margin: 2rem 0 2.5rem 0;
 }
 
+.nav-category a {
+  color: #333;
+}
+
+.nav-category {
+  border-radius: 4px;
+}
+
+.nav-category:hover,
+.nav-category.act {
+  background-color: #709e6b;
+}
+
+.nav-category:hover a,
+.nav-category.act a {
+  color: #fff;
+}
+
 .my-navbar {
   align-items: center;
   background: #709e6b;
@@ -43,9 +61,9 @@ a.my-navbar-item:hover {
   width: 60px;
 }
 
-.table-room:hover,
-.table-room.act {
-  background-color: #ddae87;
+.table-problem:hover,
+.table-problem.act {
+  background-color: #709e6b;
 }
 
 .form-control[disabled],
