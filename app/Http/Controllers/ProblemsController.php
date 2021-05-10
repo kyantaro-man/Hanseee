@@ -63,18 +63,12 @@ class ProblemsController extends Controller
      * 課題を更新する
      */
     public function update(Category $category, Problem $problem, EditProblem $request) {
-        $categories = Auth::user()->categories()->get();
-
-        $problems = $category->problems()->get();
-
         $problem->title = $request->title;
         $problem->save();
 
         return redirect()->route('problems.index', [
-            'categories' => $categories,
             'category' => $category,
             'current_category_id' => $category->id,
-            'problems' => $problems,
             'problem' => $problem,
         ]);
     }
@@ -86,7 +80,8 @@ class ProblemsController extends Controller
         $problem->delete();
 
         return redirect()->route('problems.index', [
-            'category' => $category->problems()->first(),
+            'category' => $category,
+            'current_category_id' => $category->id,
             'problem' => $problem,
         ]);
     }

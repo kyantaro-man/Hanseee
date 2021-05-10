@@ -33,10 +33,11 @@
               @foreach($problems as $problem)
                 <tr class="table-problem">
                   <td><a href="#">{{ $problem->title }}</a></td>
-                  <td><a class='btn btn-primary btn-xs' href="{{ route('problems.edit', ['category' => $category->id, 'problem' => $problem->id]) }}">編集</a></td>
+                  <td><a class='btn btn-primary btn-xs' href="{{ route('problems.edit', ['category' => $current_category_id, 'problem' => $problem->id]) }}">編集</a></td>
                   <td>
-                    <form action="#" method="POST">
+                    <form action="{{ route('problems.destroy', ['category' => $current_category_id, 'problem' => $problem->id]) }}" method="POST">
                       @csrf
+                      @method('DELETE')
                       <input type='submit' value='削除' class='btn btn-danger btn-xs'>
                     </form>
                   </td>
