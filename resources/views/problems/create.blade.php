@@ -16,7 +16,7 @@
                 </ul>
               </div>
             @endif
-            <form action="{{ route('problems.store', ['category' => $category->id]) }}" method="post">
+            <form action="{{ route('problems.store', ['category' => $current_category_id]) }}" method="post">
               @csrf
               <div class="form-group">
                 <label for="title">課題タイトル</label>
