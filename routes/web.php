@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth'], function() {
   Route::delete('/categories/{category}/problems/{problem}', [App\Http\Controllers\ProblemsController::class, 'destroy'])->name('problems.destroy');
 
   Route::get('/categories/{category}/problems/{problem}/steps', [App\Http\Controllers\StepsController::class, 'index'])->name('steps.index');
+  Route::get('/categories/{category}/problems/{problem}/steps/create', [App\Http\Controllers\StepsController::class, 'create'])->name('steps.create');
+  Route::post('/categories/{category}/problems/{problem}/steps', [App\Http\Controllers\StepsController::class, 'store'])->name('steps.store');
 });
 
 Auth::routes();
