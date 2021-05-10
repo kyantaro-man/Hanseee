@@ -5,7 +5,7 @@
     <ul class="nav justify-content-center">
       @foreach($categories as $category)
         <li class="nav-item">
-          <a class="nav-link" href="#">{{ $category->name }}</a>
+          <a class="nav-link" href="{{ route('problems.index', ['category' => $category->id]) }}">{{ $category->name }}</a>
         </li>
       @endforeach
       <li class="nav-item">

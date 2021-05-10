@@ -17,7 +17,7 @@
         <nav class="panel panel-success">
           <div class="panel-heading">課題一覧</div>
           <div class="panel-body">
-            <a href="#" class="btn btn-default btn-block">
+            <a href="{{ route('problems.create', ['category' => $category->id]) }}" class="btn btn-default btn-block">
               課題を追加する
             </a>
           </div>
